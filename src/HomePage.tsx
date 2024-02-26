@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -19,12 +19,12 @@ import {
   CssBaseline,
   Badge,
   IconButton,
-} from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Link } from "react-router-dom";
-import { useCart } from "./CartContext";
-import { Product } from "./types";
+} from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Link } from 'react-router-dom';
+import { useCart } from './CartContext';
+import { Product } from './types';
 
 interface HideOnScrollProps {
   children: React.ReactElement;
@@ -46,6 +46,8 @@ function HomePage() {
   const [searchTerm, setSearchTerm] = useState("");
   const { addToCart, cartCount } = useCart();
 
+  
+
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
@@ -66,7 +68,7 @@ function HomePage() {
       <HideOnScroll>
         <AppBar
           sx={{
-            backgroundColor: "rgba(255, 255, 255, 0.95)",
+            backgroundColor: "rgba(35, 47, 62, 0.95)",
             backdropFilter: "blur(10px)",
           }}
         >
@@ -75,9 +77,9 @@ function HomePage() {
               variant="h6"
               color="inherit"
               noWrap
-              sx={{ flexGrow: 1, color: "black" }}
+              sx={{ flexGrow: 1, color: "white" }}
             >
-              My Shop
+              Amazing Shop
             </Typography>
             <TextField
               variant="outlined"
@@ -110,7 +112,7 @@ function HomePage() {
       <Box sx={{ bgcolor: "background.default", pt: 8, pb: 2 }}>
         <Container maxWidth="xl">
           <Typography variant="h4" gutterBottom>
-            Top Produkte
+            Hot Deals 🔥
           </Typography>
           <Grid container spacing={2}>
             {filteredProducts.map((product) => (
@@ -136,7 +138,13 @@ function HomePage() {
                   <CardActions>
                     <Button
                       size="small"
-                      color="primary"
+                      sx={{
+                        bgcolor: "secondary.main",
+                        color: "primary",
+                        "&:hover": {
+                          bgcolor: "#d1872c",
+                        },
+                      }}
                       onClick={() => addToCart(product)}
                     >
                       In den Warenkorb

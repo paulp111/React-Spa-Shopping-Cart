@@ -9,18 +9,18 @@ import { CartProvider } from './CartContext';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#232f3e', 
+      main: '#232f3e', //DarkBlue
     },
     secondary: {
-      main: '#ff9900', 
+      main: '#ff9900', //Orange
     },
     background: {
-      default: '#ffffff', 
-      paper: '#f6f6f6',
+      default: '#ffff', //White
+      paper: '#f2f2f2', //Amazon white
     },
     text: {
-      primary: '#131921',
-      secondary: '#767676',
+      primary: '#131921', //Black navy
+      secondary: '#767676', //grey
     }
   },
   typography: {
