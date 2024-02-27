@@ -9,10 +9,10 @@ import { CartProvider } from './CartContext';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#232f3e', //DarkBlue
+      main: '#232f3e', //Darkblue
     },
     secondary: {
-      main: '#ff9900', //Orange
+      main: '#ff9900', //Orange 
     },
     background: {
       default: '#ffff', //White

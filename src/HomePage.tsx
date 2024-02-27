@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -19,12 +19,12 @@ import {
   CssBaseline,
   Badge,
   IconButton,
-} from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { Link } from 'react-router-dom';
-import { useCart } from './CartContext';
-import { Product } from './types';
+} from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Link } from "react-router-dom";
+import { useCart } from "./CartContext";
+import { Product } from "./types";
 
 interface HideOnScrollProps {
   children: React.ReactElement;
@@ -45,8 +45,6 @@ function HomePage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const { addToCart, cartCount } = useCart();
-
-  
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -118,29 +116,34 @@ function HomePage() {
             {filteredProducts.map((product) => (
               <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
                 <Card sx={{ maxWidth: 345, m: 2, boxShadow: 3 }}>
-                  <CardActionArea>
-                    <CardMedia
-                      component="img"
-                      height="140"
-                      image={product.image}
-                      alt={product.title}
-                      sx={{ objectFit: "contain" }}
-                    />
-                    <CardContent>
-                      <Typography gutterBottom variant="subtitle1" noWrap>
-                        {product.title}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        ${product.price.toFixed(2)}
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
+                  <Link
+                    to={`/product/${product.id}`}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    <CardActionArea>
+                      <CardMedia
+                        component="img"
+                        height="140"
+                        image={product.image}
+                        alt={product.title}
+                        sx={{ objectFit: "contain" }}
+                      />
+                      <CardContent>
+                        <Typography gutterBottom variant="subtitle1" noWrap>
+                          {product.title}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          ${product.price.toFixed(2)}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Link>
                   <CardActions>
                     <Button
                       size="small"
                       sx={{
                         bgcolor: "secondary.main",
-                        color: "primary",
+                        color: "primary.contrastText",
                         "&:hover": {
                           bgcolor: "#d1872c",
                         },

@@ -58,7 +58,7 @@ function CartPage() {
             variant="contained"
             color="primary"
             sx={{ mt: 2 }}
-            onClick={() => console.log('Checkout-Prozess')}
+            onClick={() => console.log('Checkout')}
           >
             Zur Kasse gehen
           </Button>
